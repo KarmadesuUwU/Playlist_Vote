@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist Vote</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>El momento ha llegado, añade tus canciones: </h2><br>
+        <form action="{{ url_for('add_songs') }}" method="post">
+            <h2>Añadir canciones Manualmente</h2>
+            <input type="text" name="songs" placeholder="Canción 1">
+            <input type="text" name="artists" placeholder="Artista 1">
+            <input type="text" name="songs" placeholder="Canción 2">
+            <input type="text" name="artists" placeholder="Artista 2">
+            <input type="text" name="songs" placeholder="Canción 3">
+            <input type="text" name="artists" placeholder="Artista 3">
+            <input type="text" name="songs" placeholder="Canción 4">
+            <input type="text" name="artists" placeholder="Artista 4">
+            <button type="submit">Añadir canciones</button>
+        </form>
+
+    <h2>Añadir canciones desde CSV</h2><br>
+    
+    <form action="{{ url_for('add_songs_from_csv') }}" method="post" enctype="multipart/form-data">
+        <h2>Subir archivo CSV</h2>
+        <input type="file" name="file" accept=".csv">
+        <button type="submit">Subir CSV</button>
+    </form><br>
+
+    <h3>Computer Message</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<br>
+<a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Canciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Lista de Canciones</h1>
+    <ul>
+        {% for song in songs %}
+            <li>{{ song.Fecha }} - {{ song.Cancion }} by {{ song.Artista }} (Uploaded by: {{ song['Subida por'] }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faltan Votos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Participantes que faltan de votar esta semana</h1>
+    {% if missing_voters %}
+        <ul>
+            {% for voter in missing_voters %}
+                <li>{{ voter }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Todos los participantes han votado esta semana.</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

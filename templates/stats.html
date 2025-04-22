@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Estadisticas</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+<body>
+    <h1>Estadísticas</h1>
+    <p>Aquí muestro las estadísticas.</p>
+    <button onclick="location.href='{{ url_for('most_voted_songs') }}'">Canciones Mas Gustadas (¬‿¬)</button>
+    <button onclick="location.href='{{ url_for('most_hated_songs') }}'">Canciones Mas Odiadas Ψ(￣∀￣)Ψ</button>
+    <button onclick="location.href='{{ url_for('votos_semanales') }}'">Votos Semanales 📊</button>
+    <button onclick="location.href='{{ url_for('top_global') }}'">Top Global 🥇</button>
+    <button onclick="location.href='{{ url_for('hate_global') }}'">Hate Global 💣</button>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

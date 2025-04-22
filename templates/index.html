@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist Vote</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a la playlist (☞ﾟヮﾟ)☞</h1>
+    <form method="POST" action="{{ url_for('set_user') }}">
+        <label for="username">Registra tu usuario!: </label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Set</button>
+    </form>
+    {% if username %}
+        <p>Current user: {{ username }}</p>
+    {% endif %}
+    <a href="{{ url_for('check_user') }}">Stats</a><br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <a href="{{ url_for('display_songs_week') }}">Canciones Actuales ✨</a><br>
+    <a href="{{ url_for('display_songs') }}">Historial 🧭</a><br>
+    <a href="{{ url_for('show_add_page') }}">Subir Nuevas Rolas 🤘</a><br>
+    <a href="{{ url_for('vote_songs') }}">Votaciones 🥇</a><br><br>
+    <a href="{{ url_for('missing_votes') }}">¿Quien falta de votar? 💣</a><br>
+</body>
+</html>

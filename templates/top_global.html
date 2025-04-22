@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Global Users</title>
+</head>
+<body>
+    <h1>Tabla General</h1>
+
+    <h2>Top Global</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in top_5_users %}
+                <tr>
+                    <td>{{ user['Subida por'] }}</td>
+                    <td>{{ user['Votos'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

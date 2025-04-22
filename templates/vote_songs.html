@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votar Canciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>El momento ha llegado, vota: </h1>
+    <form action="{{ url_for('vote_songs') }}" method="post">
+        <h2>Selecciona 8 canciones que disfrutaste en la playlist mas TÓXICA</h2>
+        {% for song in songs %}
+            <div>
+            <input type="checkbox" id="song{{ loop.index }}" name="selected_songs" value="{{ song['Cancion'] }}">
+            <label for="song{{ loop.index }}">{{ song['Cancion'] }} - {{ song['Artista'] }}</label>
+            </div>
+        {% endfor %}
+
+        <h2>Selecciona 1 canción culey</h2>
+        <select name="selected_culey">
+            <option value="" selected disabled hidden></option>
+            {% for song in songs %}
+            <option value="{{ song['Cancion'] }}">{{ song['Cancion'] }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br><button type="submit">Enviar Votos</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+<br>
+<a href="{{ url_for('index') }}">Volver</a>
+</html>

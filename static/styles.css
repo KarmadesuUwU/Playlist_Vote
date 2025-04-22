@@ -1,0 +1,55 @@
+/* filepath: static/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Cambiado a un color más adecuado para una página web */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Asegura que el botón sea un bloque */
+    text-align: left; /* Alinea el texto del botón a la izquierda */
+    margin: 10px 0; /* Añade un margen para separar los botones */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: left; /* Alinea el texto del enlace a la izquierda */
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    padding-left: 10px; /* Añade espacio desde el borde izquierdo */
+    transition: color 0.3s ease; /* Añade una transición suave para el color */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Cambia el color al pasar el ratón */
+}

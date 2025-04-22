@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Most Voted Songs</title>
+</head>
+<body>
+    <h1>Canciones Favoritas</h1>
+
+    <h2>Top 3 Canciones</h2>
+    <ul>
+        {% for song in top_3_songs %}
+            <li>{{ song['Cancion'] }} by {{ song['Subida por'] }} - {{ song['Votos'] }} votes</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Votos Generales</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Uploaded By</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for song in vote_counts %}
+                <tr>
+                    <td>{{ song['Cancion'] }}</td>
+                    <td>{{ song['Subida por'] }}</td>
+                    <td>{{ song['Votos'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
